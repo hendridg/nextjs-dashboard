@@ -1,6 +1,6 @@
 import '@/app/ui/global.css';
 import { inter } from '@/app/ui/fonts';
-import CustomNav from './ui/custom-nav';
+import CustomNav from '@/app/ui/custom-nav';
 
 export default function RootLayout({
   children,
@@ -9,8 +9,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <CustomNav />
-      <body className={`${inter.className} antialiased`}>{children}</body>
+      <body className={`${inter.className} antialiased`}>
+        <CustomNav />
+        {children}
+      </body>
     </html>
   );
 }

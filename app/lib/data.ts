@@ -35,7 +35,7 @@ export async function fetchRevenue() {
 export async function fetchLatestInvoices() {
   try {
     const data = await sql<LatestInvoiceRaw>`
-      SELECT invoices.amount, customers.name, customers.image_url, customers.email, invoices.id
+      SELECT invoices.amount, customers.name, customers.image_url, customers.email, invoices.id, invoices.status
       FROM invoices
       JOIN customers ON invoices.customer_id = customers.id
       ORDER BY invoices.date DESC
@@ -228,3 +228,10 @@ export async function getUser(email: string) {
     throw new Error('Failed to fetch user.');
   }
 }
+
+// export async function fetchCardData() {
+//   const invoiceCountPromise = sql`SELECT COUNT(*) FROM invoices`;
+//   const customerCountPromise = sql`SELECT COUNT(*) FROM customers`;
+
+//   return Promise.all([invoiceCountPromise, customerCountPromise]);
+// }

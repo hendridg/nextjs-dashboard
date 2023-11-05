@@ -1,10 +1,10 @@
-import style from '@/app/ui/home.module.css';
 import AcmeLogo from '@/app/ui/acme-logo';
 
 import Link from 'next/link';
 import InvoiceStatus from './ui/invoices/status';
 import { lusitana } from './ui/fonts';
 import Image from 'next/image';
+import React from 'react';
 
 export default function Page() {
   return (
@@ -23,10 +23,11 @@ export default function Page() {
             </a>
             , brought to you by Vercel.
           </p>
-
-          <InvoiceStatus status="draft" />
-          <InvoiceStatus status="paid" />
-          <InvoiceStatus status="pending" />
+          <div className="flex flex-col rounded-xl space-y-4 bg-sky-100 px-4 py-6 border border-gray-100">
+            <InvoiceStatus status="draft" />
+            <InvoiceStatus status="paid" />
+            <InvoiceStatus status="pending" />
+          </div>
           <Link
             href="/login"
             className="flex items-center gap-5 self-start rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-400 md:text-base"

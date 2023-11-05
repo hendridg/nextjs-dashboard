@@ -1,5 +1,8 @@
 'use client';
 
+// import { useCallback, useEffect, useState } from 'react';
+// import Image from 'next/image';
+
 import {
   UserGroupIcon,
   HomeIcon,
@@ -22,9 +25,26 @@ const links = [
 ];
 
 export default function NavLinks() {
+  // const [launches, setLaunches] = useState(null);
+
+  // useEffect(() => {
+  //   const getLaunches = async () => {
+  //     const res = await fetch('https://api.spacexdata.com/v5/launches/latest');
+  //     const data = await res.json();
+  //     setLaunches(data);
+  //   };
+  //   getLaunches();
+  // }, []);
+
   const pathname = usePathname();
   return (
     <>
+      {/* <Image
+        src={launches?.links?.patch.small}
+        alt="SpaceX Logo"
+        width={200}
+        height={200}
+      /> */}
       {links.map((link) => {
         const LinkIcon = link.icon;
         return (
